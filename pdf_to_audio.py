@@ -1,15 +1,12 @@
 from gtts import gTTS
 import PyPDF2
 
-# Open the PDF file
-with open("book.pdf", "rb") as file: # Open file
+with open("book.pdf", "rb") as file: # Put the name of your file
     reader = PyPDF2.PdfReader(file)
     text = ""
     
-    # Extract text of each page
     for page in reader.pages:
-        text += page.extract_text() + " "  # Space after each page text
+        text += page.extract_text() + " " 
 
-# gTTS with the extracted text
-tts = gTTS(text=text, lang="en") # Language
-tts.save("audio_paper.mp3") # Output
+tts = gTTS(text=text, lang="en") # Put the language of your file
+tts.save("audio_paper.mp3") # Put the name of your output
